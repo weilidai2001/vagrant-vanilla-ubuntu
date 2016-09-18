@@ -1,0 +1,7 @@
+- name: install docker
+  hosts: docker-host
+  sudo: true
+  vars:
+    nginx_version: 1.10.*
+  roles:
+    - nginx
