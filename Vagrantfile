@@ -12,18 +12,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         v.cpus = 1
     end
 
-    config.vm.define "server1" do |box|
-        box.vm.hostname = "server1.dev"
+    config.vm.define "docker-host" do |box|
+        box.vm.hostname = "docker-host"
         box.vm.box = "ubuntu/trusty64"
 
         box.vm.network :private_network, ip: "192.168.60.2"
-        config.ssh.forward_agent = true # allow external SSH
-    end
-
-    config.vm.define "server2" do |box|
-        box.vm.hostname = "server2.dev"
-        box.vm.box = "ubuntu/trusty64"
-        box.vm.network :private_network, ip: "192.168.60.3"
         config.ssh.forward_agent = true # allow external SSH
     end
 end
